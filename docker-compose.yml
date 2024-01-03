@@ -7,6 +7,9 @@ services:
       - '3000:3000'
     networks:
       - storybooksdocker-app
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       - mongo
   mongo:
@@ -23,6 +26,7 @@ services:
 networks:
   storybooksdocker-app:
     driver: bridge
+
 volumes:
   mongo-data:
     driver: local
