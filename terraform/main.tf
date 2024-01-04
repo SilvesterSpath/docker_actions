@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "storybooks-404706-terraform"
+    bucket = "storybooksdocker-tfstate-terraform"
     prefix = "/state/storybooksdocker"
   }
 }
