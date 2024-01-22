@@ -31,7 +31,7 @@ resource "google_compute_firewall" "allow_http" {
 }
 
 # OS IMAGE
-data "google_compute_image" "image" {
+data "google_compute_image" "cos_image" {
   project = "cos-cloud"
   family = "cos-81-lts"
 }
@@ -40,7 +40,7 @@ data "google_compute_image" "image" {
 resource "google_compute_instance" "instance" {
   name         = "${var.app_name}-vm-${terraform.workspace}"
   machine_type = var.gcp_machine_type
-  zone         = "us-central1-a"
+  zone         = "europe-central2-c"
 
   tags = google_compute_firewall.allow_http.target_tags
 

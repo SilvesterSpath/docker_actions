@@ -1,0 +1,1 @@
+gcp_machine_type = "ti-micro"
