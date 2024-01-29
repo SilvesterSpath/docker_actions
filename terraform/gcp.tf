@@ -1,6 +1,6 @@
 provider "google" {
   credentials = file("terraform-sa-key.json")
-  project = "storybooksdocker "
+  project = "storybooksdocker"
   region  = "europe-central2"
   zone   = "europe-central2-c"
 }
@@ -32,8 +32,8 @@ resource "google_compute_firewall" "allow_http" {
 
 # OS IMAGE
 data "google_compute_image" "cos_image" {
-  project = "cos-cloud"
-  family = "cos-81-lts"
+  project = "centos-cloud"
+  family = "centos-7"
 }
 
 # COMPUTE ENGINE INSTANCE

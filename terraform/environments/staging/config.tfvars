@@ -1,1 +1,1 @@
-gcp_machine_type = "ti-micro"
+gcp_machine_type = "f1-micro"

@@ -4,4 +4,4 @@ provider "cloudflare" {
 
 # DNS Zone
 
-# DNS Record
+# DNS A Record
