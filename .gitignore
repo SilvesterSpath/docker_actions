@@ -4,3 +4,4 @@ notes.txt
 ./config/.env
 terraform/.terraform
 *key.json
+terraform/environments/common.tfvars
