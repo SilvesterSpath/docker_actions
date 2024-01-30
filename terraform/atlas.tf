@@ -6,15 +6,12 @@ provider "mongodbatlas" {
 # cluster
 resource "mongodbatlas_cluster" "mongo_cluster" {
   project_id   = var.atlas_project_id
-  name         = "storybooks"
+  name         = "${var.app_name}-${terraform.workspace}"
   cluster_type = "REPLICASET"
   replication_specs {
     num_shards = 1
     regions_config {
       region_name     = "EUROPE_WEST1"
-      electable_nodes = 3
-      priority        = 7
-      read_only_nodes = 0
     }
   }
   cloud_backup                 = true
