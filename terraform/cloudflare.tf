@@ -3,5 +3,7 @@ provider "cloudflare" {
 }
 
 # DNS Zone
-
+data "cloudflare_zone" "example" {
+  name = var.domain
+}
 # DNS A Record

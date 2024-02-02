@@ -9,6 +9,13 @@ const passport = require('passport');
 const session = require('express-session');
 const connectDB = require('./config/db');
 const MongoStore = require('connect-mongo');
+const http = require('http');
+const ngrok = require('@ngrok/ngrok');
+
+// Get your endpoint online
+ngrok
+  .connect({ addr: 3000, authtoken_from_env: true })
+  .then((listener) => console.log(`Ingress established at: ${listener.url()}`));
 
 // Load config
 dotenv.config({ path: './config/.env' });
@@ -109,3 +116,37 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}`);
 });
+
+// ChatGPT
+// Get your endpoint online with Ngrok
+/* ngrok.connect({
+  proto: 'http',
+  addr: PORT,
+}).then((url) => {
+  console.log(`Application is accessible at: ${url}`);
+}).catch((err) => {
+  console.error('Error while connecting with Ngrok:', err);
+});
+
+// Graceful shutdown
+process.on('SIGINT', () => {
+  console.log('SIGINT received. Closing server and Ngrok...');
+  server.close();
+  ngrok.disconnect();
+  process.exit(0);
+}); */
+
+// Ngrok
+// Create webserver
+/* http
+  .createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end('Congrats you have created an ngrok web server');
+  })
+  .listen(8080, () => console.log('Node.js web server at 8080 is running...'));
+  
+  // Get your endpoint online
+ngrok
+  .connect({ addr: 3000, authtoken_from_env: true })
+  .then((listener) => console.log(`Ingress established at: ${listener.url()}`));
+  */
